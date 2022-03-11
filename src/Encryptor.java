@@ -124,6 +124,49 @@ public class Encryptor
      */
     public String decryptMessage(String encryptedMessage)
     {
-        return "";
+        String decrypt = "";
+        int block = numCols * numRows;
+
+        while (encryptedMessage.length() > 0)
+        {
+            decrypt += decryptBlock(encryptedMessage.substring(0, block));
+            encryptedMessage = encryptedMessage.substring(block);
+        }
+
+        String last = decrypt.substring(decrypt.length() - 1);
+
+        while (decrypt.substring(decrypt.length() - 1).equals("A"))
+        {
+            decrypt = decrypt.substring(0, decrypt.length() - 1);
+            last = decrypt.substring(decrypt.length() - 1);
+        }
+        return decrypt;
     }
+
+    public String decryptBlock(String str)
+    {
+        String[][] temp = new String[numRows][numCols];
+        int k = 0;
+        String decrypt = "";
+
+        for (int col = 0; col < temp[0].length; col++)
+        {
+            for (int row = 0; row < temp.length; row++)
+            {
+                temp[row][col] = str.substring(k, k + 1);
+                k++;
+            }
+        }
+
+        for (int row = 0; row < temp.length; row++)
+        {
+            for (int col = 0; col < temp[0].length; col++)
+            {
+                decrypt += temp[row][col];
+            }
+        }
+        return decrypt;
+    }
+
+
 }

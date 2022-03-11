@@ -218,7 +218,7 @@ public class EncryptorTester
       System.out.println("EXPECTED: " + expectedEncrypted5);
       System.out.println("  ACTUAL: " + actualEncrypted5);
     }
-/*    
+
     // -------------------------------------
     // ---- TEST PART D: decryptMessage ----
     // -------------------------------------
@@ -291,9 +291,9 @@ public class EncryptorTester
       System.out.println("EXPECTED: " + expectedDecrypted6);
       System.out.println("  ACTUAL: " + actualDecrypted6);
     }
-*/
-    Encryptor encryptorTests = new Encryptor(3, 5);
-    String encryptedMessage = encryptorTests.encryptMessage("I am pulling");
+
+    Encryptor encryptorTests = new Encryptor(5, 3);
+    String encryptedMessage = encryptorTests.decryptMessage("(-t c-)’sh_Isu aad(T daT)s y_..AAAA.AAAAAAAAA");
     System.out.println(encryptedMessage);
 
     }
